@@ -168,7 +168,7 @@ def http_server(request, io_loop, _unused_port):
     Raises:
         FixtureLookupError: tornado application fixture not found
     """
-    http_app = request.getfuncargvalue(request.config.option.app_fixture)
+    http_app = request.getfixturevalue(request.config.option.app_fixture)
     server = tornado.httpserver.HTTPServer(http_app)
     server.add_socket(_unused_port[0])
 
