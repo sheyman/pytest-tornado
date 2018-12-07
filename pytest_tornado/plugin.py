@@ -92,7 +92,7 @@ def pytest_runtest_setup(item):
 
 @pytest.mark.tryfirst
 def pytest_pyfunc_call(pyfuncitem):
-    gen_test_mark = pyfuncitem.keywords.get('gen_test')
+    gen_test_mark = pyfuncitem.get_closest_marker('gen_test')
     if gen_test_mark:
         io_loop = pyfuncitem.funcargs.get('io_loop')
         run_sync = gen_test_mark.kwargs.get('run_sync', True)
