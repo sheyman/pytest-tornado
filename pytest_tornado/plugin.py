@@ -70,7 +70,7 @@ def _argnames(func):
 
 def _timeout(item):
     default_timeout = item.config.getoption('async_test_timeout')
-    gen_test = item.get_marker('gen_test')
+    gen_test = item.get_closest_marker('gen_test')
     if gen_test:
         return gen_test.kwargs.get('timeout', default_timeout)
     return default_timeout
